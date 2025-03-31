@@ -1,68 +1,66 @@
-Quantitative Financial Analysis and Comparison Using Python
-Author: Matthew Gillett
---------------------------------------------------------------
-Integrated Finanical Model:
---------------------------------------------------------------
-Compiling Code:
-    - Spyder IDE:
-        1. Make sure excel file is not open when running**
-        2. Compile by using run file (green play button)
-    - Terminal:
-        1. python main.py
-        2. Runs tests and everything from running main.py
---------------------------------------------------------------
-MonteCarloSim.py
-BlackScholes.py
-Capm.py
-Plotter.py
-ExcelParse.py
-AccuracyTest.py
-Test.py
---------------------------------------------------------------
-Required Libraries:
-    - numpy, pandas, scipy, matplotlib, openpyxl, unittest
-    - Can use "pip install ..."
---------------------------------------------------------------
-Data:
-    - Pulled from the FactSet data base.
-    - Access through dhillon school of business student account.
---------------------------------------------------------------
-** Does run on a standard terminal if python is installed and pip installed libraries
-** If you want to run on IDE I used https://www.spyder-ide.org/ comes standard with all financial libraries
---------------------------------------------------------------
-ORDER OF OPERATIONS
+# Quantitative Financial Analysis and Comparison Using Python
 
-    CAPM --> Price PAth Simulation (GBM):
-    1. Expected Return (E(Ri))
-        - CAPM model provides stocks expected return, which becomes drift in the GBM formula.
-    2. Volatility
+**Author**: Matthew Gillett
+
+## Integrated Financial Model
+
+### Compiling Code
+
+- **Spyder IDE**:
+ 1. Make sure the Excel file is not open when running.
+ 2. Compile by using the "Run File" button (green play button).
+- **Terminal**:
+ 1. Run: `python main.py`
+ 2. This runs the tests and everything from executing `main.py`.
+
+### Python Files
+
+- `MonteCarloSim.py`
+- `BlackScholes.py`
+- `Capm.py`
+- `Plotter.py`
+- `ExcelParse.py`
+- `AccuracyTest.py`
+- `Test.py`
+
+### Required Libraries
+
+- `numpy`, `pandas`, `scipy`, `matplotlib`, `openpyxl`, `unittest`
+
+You can install these libraries using:
+```bash
+pip install numpy pandas scipy matplotlib openpyxl unittest
+```
+
+### Data
+- Data is pulled from the FactSet database.
+- Access it through the Dhillon School of Business student account.
+
+### Order of Operaitons
+1. CAPM --> Price Path Simulation (GBM)
+    - Expected Return (E(Ri)):
+        - The CAPM model provides the stock's expected return, which becomes the drift in the GBM formula.
+    - Volatility:
         - While CAPM does not calculate volatility directly, it helps justify assumptions for consistency.
-
-    Price Path Simulation --> Monte Carlo Simulations:
-    1. Simulated Price Paths (S(t))
+2. Price Path Simulation (GBM) --> Monte Carlo Simulation
+    - Simulated Price Paths (S(t)):
         - The GBM formula generates multiple price paths over time, considering the drift and volatility.
-    2. Monte Carlo Simulation
-        - Price paths are used to create a distribution of possible outcomes, enabling probability
-        based calculations.
-    3. Key Metrics Passed on
+    - Monte Carlo Simulation:
+        - Price paths are used to create a distribution of possible outcomes, enabling probability-based calculations.
+    - Key Metrics Passed on:
         - Expected future price (E(St)).
-        - Distribution of prices at specific time (St).
-        - Range and probabilities for price thresholds. 
-        
-    Monte Carlo Simulations --> Black Scholes:
-    1. Simulated Price Paths (S(T))
-        - Monte Carlo provides a distributon of future prices, which can help validate or replace Black-Scholes assumptions. 
-    2. Expected Terminal Price (E(St))
-        - the mean simulated terminal price may be used as a proxy for the current stock price input (S0) in the Black-Scholes. 
-    3. Volatility
-        - Black-Scholes requires a consistent volatility measure. The Monte Carlo Simulation can refine this input by analyzing the simulated
-        price paths. 
-
-    Black-Scholes --> Decision-Making:
-    1. Option Prices
-        - Black Scholes provides the value of options based on the underlying assets price dynamics.
-    2. Risk Metrics
+        - Distribution of prices at specific times (St).
+        - Range and probabilities for price thresholds.
+3. Monte Carlo Simulations → Black-Scholes
+    - Simulated Price Paths (S(T)):
+        - Monte Carlo provides a distribution of future prices, which can help validate or replace Black-Scholes assumptions.
+    - Expected Terminal Price (E(St)):
+        - The mean simulated terminal price may be used as a proxy for the current stock price input (S0) in the Black-Scholes formula.
+    - Volatility:
+        - Black-Scholes requires a consistent volatility measure. The Monte Carlo Simulation can refine this input by analyzing the simulated price paths.
+4. Black-Scholes → Decision-Making
+    - Option Prices:
+        - Black-Scholes provides the value of options based on the underlying asset's price dynamics.
+    - Risk Metrics:
         - Derive the delta (rate of change of option price concerning stock price).
-        - Use simulated price paths to assess sensitivites and validate Black-Scholes assumptions.
---------------------------------------------------------------
-            
+        - Use simulated price paths to assess sensitivities and validate Black-Scholes assumptions.
