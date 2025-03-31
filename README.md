@@ -32,13 +32,13 @@ Data:
 --------------------------------------------------------------
 ORDER OF OPERATIONS
 
-CAPM --> Price PAth Simulation (GBM):
+    CAPM --> Price PAth Simulation (GBM):
     1. Expected Return (E(Ri))
         - CAPM model provides stocks expected return, which becomes drift in the GBM formula.
     2. Volatility
         - While CAPM does not calculate volatility directly, it helps justify assumptions for consistency.
 
-Price Path Simulation --> Monte Carlo Simulations:
+    Price Path Simulation --> Monte Carlo Simulations:
     1. Simulated Price Paths (S(t))
         - The GBM formula generates multiple price paths over time, considering the drift and volatility.
     2. Monte Carlo Simulation
@@ -49,7 +49,7 @@ Price Path Simulation --> Monte Carlo Simulations:
         - Distribution of prices at specific time (St).
         - Range and probabilities for price thresholds. 
         
-Monte Carlo Simulations --> Black Scholes:
+    Monte Carlo Simulations --> Black Scholes:
     1. Simulated Price Paths (S(T))
         - Monte Carlo provides a distributon of future prices, which can help validate or replace Black-Scholes assumptions. 
     2. Expected Terminal Price (E(St))
@@ -58,7 +58,7 @@ Monte Carlo Simulations --> Black Scholes:
         - Black-Scholes requires a consistent volatility measure. The Monte Carlo Simulation can refine this input by analyzing the simulated
         price paths. 
 
-Black-Scholes --> Decision-Making:
+    Black-Scholes --> Decision-Making:
     1. Option Prices
         - Black Scholes provides the value of options based on the underlying assets price dynamics.
     2. Risk Metrics
